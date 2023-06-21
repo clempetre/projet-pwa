@@ -9,12 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { CameraComponent } from './camera/camera.component';
 import { RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CameraComponent,
-    AccueilComponent
+    AccueilComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { AccueilComponent } from './accueil/accueil.component';
     RouterModule.forRoot([
       { path: 'camera', component: CameraComponent },
       { path: 'accueil', component: AccueilComponent },
+      { path: 'toast', component: ToastComponent },
     ])
   ],
   providers: [NewsletterService],
