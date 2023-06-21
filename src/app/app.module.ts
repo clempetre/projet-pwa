@@ -6,10 +6,15 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { NewsletterService } from './services/newsletter.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CameraComponent } from './camera/camera.component';
+import { RouterModule } from '@angular/router';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CameraComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +25,11 @@ import { HttpClientModule } from '@angular/common/http';
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    RouterModule.forRoot([
+      { path: 'camera', component: CameraComponent },
+      { path: 'accueil', component: AccueilComponent },
+    ])
   ],
   providers: [NewsletterService],
   bootstrap: [AppComponent]
