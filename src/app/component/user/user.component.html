@@ -1,0 +1,22 @@
+<section id="userapp">
+	<header id="header">
+		<h1>users</h1>
+		<input id="new-user"  [(ngModel)]="userName"  placeholder="What needs to be done?"
+  (keyup.enter)="AddUser()"
+  autofocus>
+      </header>
+		<section id="main">
+			<!-- <mat-selection-list #userList>
+				<mat-list-option *ngFor="let user of users" >
+					{{user.name}}
+				</mat-list-option>
+			</mat-selection-list> -->
+		</section>
+		<footer id="footer">
+			<span id="user-count"></span>
+			<div id="sync-wrapper">
+				<div id="sync-success">Currently syncing</div>
+				<div id="sync-error">There was a problem syncing</div>
+			</div>
+		</footer>
+</section>
