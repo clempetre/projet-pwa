@@ -9,29 +9,34 @@ import { HttpClientModule } from '@angular/common/http';
 import { CameraComponent } from './camera/camera.component';
 import { RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
+import { UserComponent } from './component/user/user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataService } from './services/data.service';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     CameraComponent,
-    AccueilComponent
+    AccueilComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatButtonModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: true,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    RouterModule.forRoot([
-      { path: 'camera', component: CameraComponent },
-      { path: 'accueil', component: AccueilComponent },
-    ])
+    
   ],
-  providers: [NewsletterService],
+  providers: [NewsletterService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

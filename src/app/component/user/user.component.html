@@ -1,9 +1,9 @@
 <section id="userapp">
 	<header id="header">
 		<h1>users</h1>
-		<input id="new-user"  [(ngModel)]="userName"  placeholder="What needs to be done?"
+		<!-- <input id="new-user"  [(ngModel)]="userName"  placeholder="What needs to be done?"
   (keyup.enter)="AddUser()"
-  autofocus>
+  autofocus> -->
       </header>
 		<section id="main">
 			<!-- <mat-selection-list #userList>
@@ -11,6 +11,12 @@
 					{{user.name}}
 				</mat-list-option>
 			</mat-selection-list> -->
+			<div *ngFor="let user of users">
+				{{ user.name }}
+
+			</div>
+			<button mat-button color="primary" (click)="AddUser('Jordan le bg ♡')">Primary</button>
+<!-- <button (click)="addUser("clickToto")"> </button> -->
 		</section>
 		<footer id="footer">
 			<span id="user-count"></span>

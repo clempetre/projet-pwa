@@ -19,19 +19,22 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
 
-    this.database.sync("http://localhost:4200/user");
+    console.log("ngOnInit() userComponent");
+    this.database.sync("http://localhost:5984/users");
     this.database.getChangeListener().subscribe(data => {
       for (let i = 0; i < data.change.docs.length; i++) {
         this.users.push(data.change.docs[i]);
       }
     });
     this.users = this.database.fetch();
+    console.log({users : this.users});
   }
 
   
-  AddUser() {
+  AddUser(name : string) {
+    this.userName = name;
     let newUser: User = {
-      id: new Date().toISOString(),
+      _id: new Date().toISOString(),
       name: this.userName
     };
     this.database.addNewUser(newUser);

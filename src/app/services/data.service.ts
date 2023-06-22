@@ -12,6 +12,7 @@ export class DataService {
 
   constructor() {
     if (!this.isInstantiated) {
+      console.log("J'instancie ma db");
       this.db = new PouchDB("users");
       this.isInstantiated = true;
     }
@@ -25,7 +26,7 @@ export class DataService {
       .then(function(result: any) {
         for (let row of result.rows) {
           let user: User = {
-            id: row.doc._id,
+            _id: row.doc._id,
             name: row.doc.name
           };
           console.log(user);
@@ -75,6 +76,8 @@ export class DataService {
   }
 
   public sync(remote: string) {
+    console.log("sync()");
+    console.log(remote);
     const remoteDatabase = new PouchDB(remote);
     this.db
       .sync(remoteDatabase, {
