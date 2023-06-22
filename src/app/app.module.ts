@@ -1,4 +1,4 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,19 +7,20 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { NewsletterService } from './services/newsletter.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CameraComponent } from './camera/camera.component';
-import { RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { UserComponent } from './component/user/user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from './services/data.service';
 import {MatButtonModule} from '@angular/material/button';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CameraComponent,
     AccueilComponent,
-    UserComponent
+    UserComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,6 @@ import {MatButtonModule} from '@angular/material/button';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    
   ],
   providers: [NewsletterService, DataService],
   bootstrap: [AppComponent]

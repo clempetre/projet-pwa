@@ -21,6 +21,7 @@
     "@angular/router": "^16.0.0",
     "@angular/service-worker": "^16.0.0",
     "@capacitor/camera": "^5.0.4",
+    "@capacitor/toast": "^5.0.4",
     "@ionic/pwa-elements": "^3.1.1",
     "@types/pouchdb": "^6.4.0",
     "core-js": "^3.31.0",
